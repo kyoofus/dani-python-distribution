@@ -1,0 +1,9 @@
+.venv 
+.pytest_cache
+__pycache__
+*.pyC* 
+*.egg* 
+/dist/ 
+/build/ 
+/.idea/ 
+*.DS_Store* 

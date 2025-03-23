@@ -1,0 +1,55 @@
+[project]
+name = "danitools"
+version = "0.1.0"
+authors = [
+    {name = "Dani", email = "dani@example.com"}
+]
+description = "Add your description here"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.12"
+
+
+# [build-system]
+# build-backend = "setuptools.build_meta"
+# requires = ["setuptools"]
+
+[project.scripts]
+# This is the entry point for the command line interface (CLI) of your package.
+# 패키지를 설치하면 실행파일로 생성됩니다. 
+# 터미널에서 'danitools' 명령어로 실행이 가능합니다. 
+danitools = "danitools.main:main"
+
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# src/danitools 디렉토리 하위만 적용이 된다. 
+danitools = ["data/*.*", "*.txt"]
+
+[[tool.uv.index]]
+# 패키지를 어디에서 다운로드할 것인지를 지정하는 것이죠.
+# 기본적으로 uv는 종속성 해결 및 패키지 설치를 위해 PyPI(Python Package Index)를 사용
+# 그러나 uv는 [[tool.uv.index]] 구성 옵션(및 유사한 명령줄 옵션인 --index)을 통해 개인 인덱스를 포함한 다른 패키지 인덱스를 사용하도록 구성할 수 있습니다.
+# Optional name for the index.
+name = "pytorch"
+# Required URL for the index.
+url = "https://download.pytorch.org/whl/cpu"
+# default = true
+
+dependencies = [
+    "markdown>=3.7",
+]
+
+
+
+
